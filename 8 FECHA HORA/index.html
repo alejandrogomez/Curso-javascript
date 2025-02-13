@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<head>
+    
+    <title>Temporizador</title>
+ 
+    <link rel="stylesheet" href="misestilos.css">
+   
+</head>
+<body onload="comenzarreloj()">
+    <input type="number" id="tiempoelegido">
+    <button onclick="comenzartiempo()">alarma</button>
+    <h1 id="textoalarma" >00:00:00</h1>
+
+
+    <audio id="audioalarma">
+        <source src="alarma.mp3" type="audio/mpeg">
+        sonido no habilitado
+
+    </audio>
+
+    <script>
+        let elementossegundos=document.getElementById("tiempoelegido");
+        let elementotextoalarma=document.getElementById("textoalarma");
+        let elementosonidoalarma = document.getElementById("audioalarma");
+
+        function comenzartiempo(){
+            setTimeout(tiempocumplido, 1000*elementossegundos.value);
+        }
+
+        function tiempocumplido(){
+            
+            elementotextoalarma.style.color = "green";
+            elementosonidoalarma.play();
+
+        }
+
+        function comenzarreloj(){
+            setInterval(tictac,1000);
+        }
+
+        function tictac(){
+            let tiempoactual = new Date();
+            let hora = tiempoactual.getHours();
+            let minutos = tiempoactual.getMinutes();
+            let segundos = String(tiempoactual.getSeconds()).padStart(2,0);
+
+        let textohora = hora + ":" + minutos + ":" + segundos;
+        elementotextoalarma.textContent = textohora;
+
+        }
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
