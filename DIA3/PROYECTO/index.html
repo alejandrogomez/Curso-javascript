@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+    
+    <title>Responde rapido</title>
+    <link rel="stylesheet" href="misestilos.css">
+</head>
+<body onload="comenzarcuentaregresiva()">
+
+
+    <h2>Responde a las preguntas lo mas rapido <span id="cuentaregresiva"></span></h2>
+    <p>1. cual es la capital de francia</p>
+    <input type="text" name="" id="respuesta1">
+    <p>2. 7*5+15</p>
+    <input type="text" name="" id="respuesta2">
+    <p>3. simbolo quimico del agua</p>
+    <input type="text" name="" id="respuesta3">
+    <p>4. año descubrimiento america</p>
+    <input type="text" name="" id="respuesta4">
+    <p>5. nombre de los beatles</p>
+    <input type="text" name="" id="respuesta5">
+    <br><br>
+    <button onclick="finalizado()">termine</button>
+    <br><br>
+    <button onclick="volveraintentar()">volver a intentar</button>
+    <audio id="audiofinal">
+        <source src="gameover.mp3" type="audio/mpeg">
+        sonido no habilitado
+
+    </audio>
+
+    <script>
+        let tiempoterminado;
+        let intervalodetiempo;
+
+        function comenzarcuentaregresiva(){
+            tiempoterminado = setTimeout(tiempocumplido,30000);
+            intervalodetiempo = setInterval(tictac, 1000);
+
+            document.getElementById("cuentaregresiva").textContent = 30;
+        }
+
+        function tictac(){
+            let tiempo = document.getElementById("cuentaregresiva").textContent;
+            document.getElementById("cuentaregresiva").textContent = tiempo -1;
+
+        }
+
+        function tiempocumplido(){
+            clearInterval(intervalodetiempo);
+            document.getElementById("cuentaregresiva").textContent =0;
+            document.getElementById("audiofinal").play();
+            alert("game over: se acabo el tiempo. intenta nuevamente");
+
+        }
+
+
+        function finalizado(){
+            clearTimeout(tiempoterminado);
+            clearInterval(intervalodetiempo);
+            let fecha = new Date();
+            let respuesta1 = document.getElementById("respuesta1").value;
+            let respuesta2 = document.getElementById("respuesta2").value;
+            let respuesta3 = document.getElementById("respuesta3").value;
+            let respuesta4 = document.getElementById("respuesta4").value;
+            let respuesta5 = document.getElementById("respuesta5").value;
+
+            let mensaje = fecha.toLocaleDateString("es-Es")+ "\n" + 
+                            "1." + respuesta1 + "\n" + 
+                            "2." + respuesta2 + "\n" + 
+                            "3." + respuesta3 + "\n" + 
+                            "4." + respuesta4 + "\n" + 
+                            "5." + respuesta5;
+            alert(mensaje);
+        }
+
+        function volveraintentar(){
+            location.reload();
+        }
+
+
+    </script>
+</body>
+</html>
