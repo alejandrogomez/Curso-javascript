@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+    
+    <title>Boletin estudiantil</title>
+    <link rel="stylesheet" href="misestilos.css">
+    <script src="boletin.js"></script>
+</head>
+<body onload="listarnotas()">
+        <div class="logo">
+            <img src="logo.png" />
+            <h2>Bienvenido a tu boletin estudiantil</h2>
+        </div>
+
+        <div class="estudiante">
+            <h3>Alumno: Luis Gomez</h3>
+
+        </div>
+        <h4>Notas:</h4>
+        <ul id="listanotas">
+
+        </ul>
+        <div class="info">
+            <h4>promedio: <span id="promedio"></span></h4>
+            <button onclick="calcularpromedio()">calcular promedio</button>
+
+            <h4>Nota mas alta: <span id="nota"></span></h4>
+            <button onclick="notamasalta()">buscar nota mas alta</button>
+
+            <h4>hubo algun aplazo? <span id="aplazo"></span></h4>
+            <button onclick="hayaplazo()">consultar aplazo</button>
+
+
+
+        </div>
+</body>
+</html>
