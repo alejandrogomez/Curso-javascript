@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+   
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            function Perro(raza,edad){
+                this.patas = 4;
+                this.raza=raza;
+                this.edad=edad;
+                this.ladrar=function(){
+                    console.log("guau");
+                };
+            };
+
+            let simba = new Perro("shitzu",4);
+
+            function Empleado(nombre,apellido,edad,cargo){
+                this.nombre=nombre;
+                this.apellido=apellido;
+                this.edad=edad;
+                this.cargo=cargo;
+                this.presentarse= function(){
+                    console.log(`mi nombre es ${this.nombre} ${this.apellido},soy ${this.cargo}, y tengo ${this.edad} años edad`);
+                
+                };
+            };
+
+        </script>
+</body>
+</html>
