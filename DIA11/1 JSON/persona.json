@@ -1,0 +1,14 @@
+{
+    "nombre":"Luis Gomez",
+    "edad":35,
+    "esEstudiante":false,
+    "direccion":{
+        "calle":"av siempre viva 742",
+        "ciudad":"springfield"
+    },
+    "telefonos":[
+        "555-555",
+        "555-888"
+    ]
+    
+}
